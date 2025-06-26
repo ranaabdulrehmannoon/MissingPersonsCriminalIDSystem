@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #f0f2f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdminDashboardController">
+
+    <!-- Sidebar -->
+    <Pane prefHeight="720" prefWidth="300.0" style="-fx-background-color: #2c3e50;">
+        <VBox layoutX="20" layoutY="70" spacing="20" />
+
+        <Button fx:id="btnLogout" layoutX="20.0" layoutY="479.0" onAction="#handleLogout" prefHeight="55" prefWidth="260" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-radius: 10;" styleClass="hover-button" text="Logout" />
+
+        <Button fx:id="btnGenerateReports" layoutX="20.0" layoutY="293.0" onAction="#handleGenerateReports" prefHeight="55" prefWidth="260" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-radius: 10;" styleClass="hover-button" text="Generate Reports" />
+
+        <Button fx:id="btnManageUsers" layoutX="20.0" layoutY="211.0" onAction="#handleManageUsers" prefHeight="55" prefWidth="260" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-radius: 10;" styleClass="hover-button" text="Manage Users" />
+
+        <!-- Title -->
+        <Text fx:id="welcomeText" layoutX="21.0" layoutY="105.0" style="-fx-font-size: 32px; -fx-fill: white; -fx-font-weight: bold;" text="Welcome, Admin" />
+      
+        <Button fx:id="btnDashboard" layoutX="20.0" layoutY="377.0" onAction="#handleDashboard" prefHeight="55" prefWidth="260" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-radius: 10;" styleClass="hover-button" text="Dashboard" />
+    </Pane>
+
+    <!-- Content Area -->
+    <StackPane fx:id="contentPane" layoutX="320.0" layoutY="50.0" prefHeight="620.0" prefWidth="940.0">
+        <VBox alignment="TOP_CENTER" spacing="20" style="-fx-padding: 20;">
+            <!-- Header with blue rectangle background -->
+            <StackPane alignment="CENTER_LEFT" prefWidth="900">
+                <Rectangle arcHeight="15" arcWidth="15" fill="#3498db" height="50" width="894.0" />
+                <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white; -fx-padding: 0 0 0 20;" text="                                         Admin Dashboard" />
+            </StackPane>
+            
+            <!-- Bar Charts Section -->
+            <HBox alignment="CENTER" spacing="20">
+                <!-- Missing Persons Chart -->
+                <VBox prefHeight="300" prefWidth="450" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                    <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Missing Persons Statistics" />
+                    <BarChart fx:id="missingPersonsChart">
+                        <xAxis>
+                            <CategoryAxis fx:id="missingPersonsAxis" label="Time Period" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis fx:id="missingCountAxis" label="Number of Cases" />
+                        </yAxis>
+                    </BarChart>
+                </VBox>
+                
+                <!-- Cases by Status Chart -->
+                <VBox prefHeight="300" prefWidth="450" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                    <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Cases by Status" />
+                    <BarChart fx:id="casesByStatusChart">
+                        <xAxis>
+                            <CategoryAxis fx:id="statusAxis" label="Status" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis fx:id="caseCountAxis" label="Number of Cases" />
+                        </yAxis>
+                    </BarChart>
+                </VBox>
+            </HBox>
+            
+            <!-- Statistics Section -->
+            <HBox alignment="CENTER" spacing="20">
+                <!-- Total Users Card -->
+                <VBox prefHeight="150" prefWidth="280" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                    <Label style="-fx-font-size: 16px; -fx-text-fill: #7f8c8d;" text="Total Users" />
+                    <Label fx:id="totalUsersLabel" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #3498db;" text="0" />
+                </VBox>
+                
+                <!-- Active Cases Card -->
+                <VBox prefHeight="150" prefWidth="280" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                    <Label style="-fx-font-size: 16px; -fx-text-fill: #7f8c8d;" text="Active Cases" />
+                    <Label fx:id="activeCasesLabel" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #2ecc71;" text="0" />
+                </VBox>
+                
+                <!-- Solved Cases Card -->
+                <VBox prefHeight="150" prefWidth="280" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                    <Label style="-fx-font-size: 16px; -fx-text-fill: #7f8c8d;" text="Solved Cases" />
+                    <Label fx:id="solvedCasesLabel" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #e74c3c;" text="0" />
+                </VBox>
+            </HBox>
+        </VBox>
+    </StackPane>
+</AnchorPane>

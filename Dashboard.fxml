@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #f0f2f5;" stylesheets="@css/DashboardStyle.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashboardController">
+
+    <!-- Sidebar -->
+    <Pane prefHeight="720" prefWidth="319.0" style="-fx-background-color: #3498db;">
+        <VBox layoutX="20" layoutY="70" spacing="20" />
+
+        <Button fx:id="btnLogout" layoutX="30.0" layoutY="571.0" onAction="#handleLogout" prefHeight="55" prefWidth="260" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-radius: 10;" styleClass="hover-button" text="Logout" />
+
+        <Button fx:id="btnViewCriminals" layoutX="30.0" layoutY="418.0" onAction="#handleViewCriminals" prefHeight="55" prefWidth="260" style="-fx-background-color: white; -fx-text-fill: #3498db; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-radius: 10;" styleClass="hover-button" text="View Criminal Records" />
+
+        <Button fx:id="btnViewCases" layoutX="30.0" layoutY="274.0" onAction="#handleViewCases" prefHeight="55" prefWidth="260" style="-fx-background-color: white; -fx-text-fill: #3498db; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-radius: 10;" styleClass="hover-button" text="View Missing Cases" />
+
+        <Button fx:id="btnRegisterMissing" layoutX="30.0" layoutY="201.0" onAction="#handleRegisterMissing" prefHeight="55" prefWidth="260" style="-fx-background-color: white; -fx-text-fill: #3498db; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-radius: 10;" styleClass="hover-button" text="Register Missing Person" />
+        
+        <Button fx:id="btnAddCriminal" layoutX="30.0" layoutY="346.0" onAction="#handleAddCriminal" prefHeight="55" prefWidth="260" style="-fx-background-color: white; -fx-text-fill: #3498db; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-radius: 10;" styleClass="hover-button" text="Add Criminal Record" />
+
+        <Button fx:id="btnManageProfile" layoutX="30.0" layoutY="127.0" onAction="#handleManageProfile" prefHeight="55" prefWidth="260" style="-fx-background-color: white; -fx-text-fill: #3498db; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-radius: 10;" styleClass="hover-button" text="Manage Profile" />
+
+        <!-- Title - Updated to include username -->
+        <Text fx:id="welcomeText" layoutX="56.0" layoutY="105.0" style="-fx-font-size: 32px; -fx-fill: white; -fx-font-weight: bold;" />
+      <Button fx:id="btnDashboard" layoutX="30.0" layoutY="490.0" onAction="#handleDashboard" prefHeight="55" prefWidth="260" style="-fx-background-color: white; -fx-text-fill: #3498db; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-radius: 10;" styleClass="hover-button" text="Dashboard" />
+    </Pane>
+
+    <!-- Enhanced Content Area -->
+    <StackPane fx:id="contentPane" layoutX="320.0" layoutY="50.0" prefHeight="620.0" prefWidth="940.0">
+        <VBox alignment="TOP_CENTER" spacing="20" style="-fx-padding: 20;">
+            <!-- Header with blue rectangle background -->
+            <StackPane alignment="CENTER_LEFT" prefWidth="900">
+                <Rectangle arcHeight="15" arcWidth="15" fill="#3498db" height="50" width="891.0" />
+                <Label prefHeight="51.0" prefWidth="527.0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white; -fx-padding: 0 0 0 20;" text="                                               Dashboard" />
+            </StackPane>
+            
+            <!-- Statistics Cards -->
+            <HBox alignment="CENTER" spacing="20">
+                <!-- Total Cases Card -->
+                <VBox prefHeight="150" prefWidth="280" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                    <Label style="-fx-font-size: 16px; -fx-text-fill: #7f8c8d;" text="Total Missing Cases" />
+                    <Label fx:id="totalCasesLabel" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #3498db;" text="125" />
+                    <HBox alignment="CENTER_LEFT" spacing="5">
+                        <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/trend-up.png" />
+                            </image>
+                        </ImageView>
+                        <Label style="-fx-text-fill: #2ecc71; -fx-font-size: 14px;" text="+12% from last month" />
+                    </HBox>
+                </VBox>
+                
+                <!-- Solved Cases Card -->
+                <VBox prefHeight="150" prefWidth="280" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                    <Label style="-fx-font-size: 16px; -fx-text-fill: #7f8c8d;" text="Cases Solved" />
+                    <Label fx:id="solvedCasesLabel" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #2ecc71;" text="89" />
+                    <HBox alignment="CENTER_LEFT" spacing="5">
+                        <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/trend-up.png" />
+                            </image>
+                        </ImageView>
+                        <Label style="-fx-text-fill: #2ecc71; -fx-font-size: 14px;" text="+8% from last month" />
+                    </HBox>
+                </VBox>
+                
+                <!-- Active Cases Card -->
+                <VBox prefHeight="150" prefWidth="280" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                    <Label style="-fx-font-size: 16px; -fx-text-fill: #7f8c8d;" text="Active Cases" />
+                    <Label fx:id="activeCasesLabel" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #e74c3c;" text="36" />
+                    <HBox alignment="CENTER_LEFT" spacing="5">
+                        <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                            <image>
+                               <Image url="@../images/trend-down.png" />
+                            </image>
+                        </ImageView>
+                        <Label style="-fx-text-fill: #e74c3c; -fx-font-size: 14px;" text="-5% from last month" />
+                    </HBox>
+                </VBox>
+            </HBox>
+            
+            <!-- Recent Activity Section -->
+            <VBox prefHeight="250" prefWidth="900" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Recent Activity" />
+                
+                <ListView fx:id="recentActivityList" prefHeight="180">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="New missing person case reported - Ibrahim Khan (ID: 142)" />
+                            <String fx:value="Case #138 marked as solved" />
+                            <String fx:value="New criminal record added - ID: CR-2023-045" />
+                            <String fx:value="User profile updated - Officer Abdullah Noon" />
+                        </FXCollections>
+                    </items>
+                </ListView>
+            </VBox>
+        </VBox>
+    </StackPane>
+</AnchorPane>

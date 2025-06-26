@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<VBox spacing="20" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ReportGeneratorController">
+
+    <Label text="Report Generator" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <!-- Report Controls -->
+    <HBox spacing="20" alignment="CENTER_LEFT">
+        <Label text="Report Type:"/>
+        <ComboBox fx:id="reportTypeComboBox" prefWidth="200"/>
+        
+        <Label text="From:"/>
+        <DatePicker fx:id="fromDatePicker"/>
+        
+        <Label text="To:"/>
+        <DatePicker fx:id="toDatePicker"/>
+        
+        <Button fx:id="btnGenerate" onAction="#handleGenerate" text="Generate" style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+        <Button fx:id="btnPrint" onAction="#handlePrint" text="Print" style="-fx-background-color: #2ecc71; -fx-text-fill: white;"/>
+    </HBox>
+
+    <!-- Report Table -->
+    <TableView fx:id="reportTable" prefHeight="400" prefWidth="1200">
+        <columns>
+            <TableColumn fx:id="col1" prefWidth="300" text="Column 1"/>
+            <TableColumn fx:id="col2" prefWidth="300" text="Column 2"/>
+            <TableColumn fx:id="col3" prefWidth="300" text="Column 3"/>
+            <TableColumn fx:id="col4" prefWidth="300" text="Column 4"/>
+        </columns>
+    </TableView>
+</VBox>

@@ -1,0 +1,188 @@
+/* Base button style (you can override this per-button inline if needed) */
+.button {
+    -fx-background-radius: 10;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* Hover effect class: apply this in FXML via styleClass="hover-button" */
+.hover-button {
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 4, 0, 0, 2);
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -fx-transition: all 0.2s ease-in-out; /* Note: JavaFX ignores this, kept for clarity */
+}
+
+/* Hover state: glow and slight scale effect */
+.hover-button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0, 0, 4);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+/* Optional text style for any Text node if used */
+.text {
+    -fx-font-weight: bold;
+}
+.button {
+    -fx-background-radius: 10;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* Hover effect */
+.hover-button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0, 0, 4);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+/* Form input field */
+.text-field {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #ccc;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+}
+/* Form Styles */
+.form-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.text-field, .text-area, .combo-box, .date-picker {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 4px;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused, .text-area:focused {
+    -fx-border-color: #3498db;
+    -fx-effect: dropshadow(gaussian, rgba(52,152,219,0.3), 5, 0, 0, 1);
+}
+
+.text-area {
+    -fx-background-insets: 0;
+    -fx-background-radius: 4px;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: #2c3e50;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #3498db;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: #3498db;
+    -fx-background-radius: 0 3 3 0;
+}
+/* Profile Image View */
+#profileImageView {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);
+    -fx-background-radius: 40;
+}
+
+/* Password Fields */
+.password-field {
+    -fx-font-family: "Arial";
+}
+
+/* Profile Form Styles */
+.profile-form-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+.date-picker .arrow {
+    -fx-background-color: white;
+}
+
+/* Required field indicator */
+.required-field {
+    -fx-text-fill: #e74c3c;
+    -fx-font-weight: bold;
+}
+/* Add this to your existing CSS */
+#btnAddCriminal {
+    -fx-background-color: white;
+    -fx-text-fill: #e74c3c;
+    -fx-border-color: #e74c3c;
+    -fx-border-width: 2px;
+}
+
+#btnAddCriminal:hover {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(231,76,60,0.5), 10, 0, 0, 3);
+}
+
+/* Section titles */
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-fill: #2c3e50;
+    -fx-padding: 0 0 10 0;
+}
+
+/* Button hover effects */
+.button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 2);
+    -fx-cursor: hand;
+}
+
+/* Photo upload button */
+.upload-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4px;
+}
+
+.upload-button:hover {
+    -fx-background-color: #2980b9;
+}
+/* ScrollPane styling */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #bdc3c7;
+    -fx-background-radius: 5em;
+}
+
+.scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 0 0;
+}
+
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
+
+/* Keep all your existing form styles */
+/* ... */
