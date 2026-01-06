@@ -7,7 +7,7 @@ public class TestConnection {
     public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/oop_project";
         String user = "root";
-        String password = "Thinkpadtesla@79"; // Replace with your MySQL password
+        String password = "your actual password"; // Replace with your MySQL password
         
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
@@ -17,4 +17,5 @@ public class TestConnection {
             System.err.println("❌ Connection failed: " + e.getMessage());
         }
     }
+
 }
